@@ -170,11 +170,8 @@ void MainWindow::fullmainwindow(){
 
     connect(Default, &QPushButton::clicked, this, [=](){
         qDebug() << "KoompiLight clicked";
-        QProcess* change_plasma_theme = new QProcess;
-        QProcess* change_layout_theme = new QProcess;
-
-        change_plasma_theme->execute("lookandfeeltool -a org.koompi.theme.koompi-light");
-        change_layout_theme->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/koompi-layout-light.sh");
+        QProcess* restore_theme = new QProcess;
+        restore_theme->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/kmp-dark.sh");
     });
 
     connect(Cancel, &QPushButton::clicked, this, [=](){
@@ -182,47 +179,26 @@ void MainWindow::fullmainwindow(){
     });
 
     connect(Apply, &QPushButton::clicked, this, [=](){
-        QProcess* change_plasma_theme = new QProcess;
-        QProcess* update_menu_key = new QProcess;
-        QProcess* change_kvantum_theme = new QProcess;
-        QProcess* change_sddm_theme = new QProcess;
+        QProcess* update_theme = new QProcess;
         qDebug() << selected;
         switch(selected) {
         case 1:
-            change_kvantum_theme->execute("kvantummanager --set Qogir-dark");
-            change_plasma_theme->execute("lookandfeeltool -a org.koompi.theme.koompi-dark --resetLayout");
-            update_menu_key->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/kmp.sh");
-            change_sddm_theme->execute("pkexec sed -i 's/Current=.*/Current=koompi-dark/g' /etc/sddm.conf.d/kde_settings.conf");
+            update_theme->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/kmp-dark.sh");
             break;
         case 2:
-            change_kvantum_theme->execute("kvantummanager --set Qogir-light");
-            change_plasma_theme->execute("lookandfeeltool -a org.koompi.theme.koompi-light --resetLayout");
-            update_menu_key->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/kmp.sh");
-            change_sddm_theme->execute("pkexec sed -i 's/Current=.*/Current=koompi-transparent/g' /etc/sddm.conf.d/kde_settings.conf");
+            update_theme->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/kmp-light.sh");
             break;
         case 3:
-            change_kvantum_theme->execute("kvantummanager --set McMojave");
-            change_plasma_theme->execute("lookandfeeltool -a org.koompi.theme.koompi-mosx-dark --resetLayout");
-            update_menu_key->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/mosx.sh");
-            change_sddm_theme->execute("pkexec sed -i 's/Current=.*/Current=koompi-dark/g' /etc/sddm.conf.d/kde_settings.conf");
+            update_theme->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/mosx-dark.sh");
             break;
         case 4:
-            change_kvantum_theme->execute("kvantummanager --set McMojave-light");
-            change_plasma_theme->execute("lookandfeeltool -a org.koompi.theme.koompi-mosx-light --resetLayout");
-            update_menu_key->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/mosx.sh");
-            change_sddm_theme->execute("pkexec sed -i 's/Current=.*/Current=koompi-transparent/g' /etc/sddm.conf.d/kde_settings.conf");
+            update_theme->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/mosx-light.sh");
             break;
         case 5:
-            change_kvantum_theme->execute("kvantummanager --set Fluent-Dark");
-            change_sddm_theme->execute("pkexec sed -i 's/Current=.*/Current=koompi-dark/g' /etc/sddm.conf.d/kde_settings.conf");
-            change_plasma_theme->execute("lookandfeeltool -a org.koompi.theme.koompi-winx-dark --resetLayout");
-            update_menu_key->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/winx.sh");
+            update_theme->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/winx-dark.sh");
             break;
         case 6:
-            change_kvantum_theme->execute("kvantummanager --set Fluent-Light");
-            change_plasma_theme->execute("lookandfeeltool -a org.koompi.theme.koompi-winx-light --resetLayout");
-            update_menu_key->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/winx.sh");
-            change_sddm_theme->execute("pkexec sed -i 's/Current=.*/Current=koompi-transparent/g' /etc/sddm.conf.d/kde_settings.conf");
+            update_theme->execute("/usr/bin/bash /usr/share/org.koompi.theme.manager/winx-light.sh");
             break;
         }
     });

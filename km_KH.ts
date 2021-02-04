@@ -92,12 +92,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="254"/>
+        <location filename="mainwindow.cpp" line="260"/>
         <source>preferences-desktop-theme-global</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="255"/>
+        <location filename="mainwindow.cpp" line="261"/>
         <source>Theme Manager</source>
         <translation type="unfinished"></translation>
     </message>

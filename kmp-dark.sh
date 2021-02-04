@@ -1,5 +1,8 @@
 #!/bin/bash
-
+pkexec sed -i 's/Current=.*/Current=koompi-dark/g' /etc/sddm.conf.d/kde_settings.conf
+kvantummanager --set Qogir-dark
+lookandfeeltool -a org.koompi.theme.koompi-dark --resetLayout
+sleep 10
 plugin_line=$(grep -n "plugin=launchpadPlasmaMod" ${HOME}/.config/plasma-org.kde.plasma.desktop-appletsrc)
 
 target_line=$((${plugin_line%:*} - 2))
@@ -27,10 +30,8 @@ kwriteconfig5 --file "$HOME/.config/kglobalshortcutsrc" \
     --group "plasmashell" \
     --key "activate widget ${widget_id}" \
     "Alt+F1,none,Activate Launchpad Plasma Transparent Widget"
-
-# Update latte dock
-if ! pgrep -x "latte-dock" >/dev/null; then
-    cp /usr/share/applications/org.kde.latte-dock.desktop ${HOME}/.config/autostart/
-    latte-dock </dev/null &>/dev/null &
-    echo -e "Done"
+# remove latte dock
+if pgrep -x "latte-dock" >/dev/null; then
+    rm -rf ${HOME}/.config/autostart/org.kde.latte-dock.desktop
+    killall latte-dock
 fi

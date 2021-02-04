@@ -1,6 +1,9 @@
 #!/bin/bash
-
-plugin_line=$(grep -n "plugin=com.github.zren.tiledmenu" ${HOME}/.config/plasma-org.kde.plasma.desktop-appletsrc)
+pkexec sed -i 's/Current=.*/Current=koompi-transparent/g' /etc/sddm.conf.d/kde_settings.conf
+kvantummanager --set Qogir-light
+lookandfeeltool -a org.koompi.theme.koompi-light --resetLayout
+sleep 10
+plugin_line=$(grep -n "plugin=launchpadPlasmaMod" ${HOME}/.config/plasma-org.kde.plasma.desktop-appletsrc)
 
 target_line=$((${plugin_line%:*} - 2))
 
@@ -20,14 +23,14 @@ echo $widget_id
 header="[Containments][$containment_id][Applets][${widget_id}][Shortcuts]"
 config="global=Alt+F1"
 
-sed -i "s/plugin=com.github.zren.tiledmenu/plugin=com.github.zren.tiledmenu\n\n${header}\n${config}\n/" ${HOME}/.config/plasma-org.kde.plasma.desktop-appletsrc
+sed -i "s/plugin=launchpadPlasmaMod/plugin=launchpadPlasmaMod\n\n${header}\n${config}\n/" ${HOME}/.config/plasma-org.kde.plasma.desktop-appletsrc
 sed -i '/Launchpad/d' $HOME/.config/kglobalshortcutsrc
 sed -i '/Tiled\ Menu/d' $HOME/.config/kglobalshortcutsrc
 kwriteconfig5 --file "$HOME/.config/kglobalshortcutsrc" \
     --group "plasmashell" \
     --key "activate widget ${widget_id}" \
-    "Alt+F1,none,Activate Tiled Menu Widget"
-
+    "Alt+F1,none,Activate Launchpad Plasma Transparent Widget"
+# remove latte dock
 if pgrep -x "latte-dock" >/dev/null; then
     rm -rf ${HOME}/.config/autostart/org.kde.latte-dock.desktop
     killall latte-dock
