@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>i18n/km_KH.qm</file>
+    </qresource>
+</RCC>

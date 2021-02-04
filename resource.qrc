@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/images/koompi-dark.png</file>
+        <file>resources/images/koompi-light.png</file>
+        <file>resources/images/mosx-dark.png</file>
+        <file>resources/images/mosx-light.png</file>
+        <file>resources/images/winx-dark.png</file>
+        <file>resources/images/winx-light.png</file>
+    </qresource>
+</RCC>
