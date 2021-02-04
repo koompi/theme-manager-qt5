@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name[en_US]=Theme Manager
+Name=Theme Manager
+GenericName[en_US]=Theme Manager
+GenericName=Theme Manager
+Comment[en_US]=Change KOOMPI OS Global Theme
+Comment=Change KOOMPI OS Global Theme
+Categories=Application
+Icon=preferences-desktop-theme-global
+Keywords=Theme;Explorer;Settings
+Type=Application
+Version=1.0
+Exec=/usr/bin/theme-manager
