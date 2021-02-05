@@ -1,6 +1,6 @@
 pkgname=koompi-theme-manager-qt5
-pkgver=1.0.1
-pkgrel=2
+pkgver=1.0.2
+pkgrel=1
 arch=('any')
 pkgdesc="Theme Manager for KOOMPI OS with Plasma and Kvantum"
 url=https://github.com/koompi/theme-manager-qt5

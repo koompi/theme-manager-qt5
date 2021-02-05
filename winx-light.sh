@@ -36,3 +36,6 @@ if pgrep -x "latte-dock" >/dev/null; then
     rm -rf ${HOME}/.config/autostart/org.kde.latte-dock.desktop
     killall latte-dock
 fi
+
+# Lock screen
+kwriteconfig5 --file kscreenlockerrc --group Greeter --group Wallpaper --group org.kde.image --group General --key Image "file:///usr/share/wallpapers/night-lake-sky-scenery-nature-uhdpaper.com-4K-8.253.jpg"

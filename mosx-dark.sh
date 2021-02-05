@@ -37,3 +37,6 @@ if ! pgrep -x "latte-dock" >/dev/null; then
     latte-dock </dev/null &>/dev/null &
     echo -e "Done"
 fi
+
+# Lock screen
+kwriteconfig5 --file kscreenlockerrc --group Greeter --group Wallpaper --group org.kde.image --group General --key Image "file:///usr/share/wallpapers/abstract-colorful-dispersion-digital-art-uhdpaper.com-4K-4.1950.jpg"
